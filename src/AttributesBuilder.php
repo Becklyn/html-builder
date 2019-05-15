@@ -2,15 +2,34 @@
 
 namespace Becklyn\HtmlBuilder;
 
+use Becklyn\HtmlBuilder\Exception\InvalidAttributeNameException;
+
 /**
  * Builds tag attribute strings.
  */
 class AttributesBuilder
 {
     /**
+     * @var AttributesValidator
+     */
+    private $nameValidator;
+
+
+    /**
+     *
+     */
+    public function __construct ()
+    {
+        $this->nameValidator = new AttributesValidator();
+    }
+
+
+    /**
      * Builds arguments to a valid attributes string.
      *
      * @param array $attributes
+     *
+     * @throws InvalidAttributeNameException
      *
      * @return string
      */
@@ -18,8 +37,13 @@ class AttributesBuilder
     {
         $segments = [];
 
-        foreach ($attributes as $key => $value)
+        foreach ($attributes as $name => $value)
         {
+            if (!$this->nameValidator->validateName($name))
+            {
+                throw new InvalidAttributeNameException(\sprintf("The attribute name `%s` is invalid.", $name));
+            }
+
             if (null === $value || false === $value)
             {
                 continue;
@@ -27,13 +51,13 @@ class AttributesBuilder
 
             if (true === $value)
             {
-                $segments[] = $key;
+                $segments[] = $name;
                 continue;
             }
 
             $segments[] = \sprintf(
                 '%s="%s"',
-                $key,
+                $name,
                 \htmlspecialchars((string) $value, \ENT_COMPAT)
             );
         }
