@@ -3,6 +3,7 @@
 namespace Tests\Becklyn\HtmlBuilder;
 
 use Becklyn\HtmlBuilder\AttributesBuilder;
+use Becklyn\HtmlBuilder\Exception\InvalidAttributeNameException;
 use PHPUnit\Framework\TestCase;
 
 class AttributesBuilderTest extends TestCase
@@ -32,5 +33,16 @@ class AttributesBuilderTest extends TestCase
     {
         $builder = new AttributesBuilder();
         self::assertSame($expected, $builder->build($attributes));
+    }
+
+
+    /**
+     *
+     */
+    public function testInvalidName ()
+    {
+        $this->expectException(InvalidAttributeNameException::class);
+        $builder = new AttributesBuilder();
+        $builder->build(['sorry invalid' => 123]);
     }
 }
