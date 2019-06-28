@@ -2,22 +2,43 @@ HTML Builder
 ============
 
 
+Elements Builder
+----------------
+
+```php
+use Becklyn\HtmlBuilder\Builder\HtmlBuilder;
+use Becklyn\HtmlBuilder\Node\HtmlElement;
+
+$builder = new HtmlBuilder();
+
+$link = new HtmlElement("a", [
+    "href" => "https://becklyn.com", 
+], [
+    "Becklyn Studios"
+]);
+
+assert('<a href="https://becklyn.com">Becklyn Studios</a>' === $builder->buildElement($link));
+```
+
+
 Attributes Builder
 ------------------
 
 
 ```php
-use Becklyn\HtmlBuilder\AttributesBuilder;
+use Becklyn\HtmlBuilder\Builder\HtmlBuilder;
+use Becklyn\HtmlBuilder\Node\HtmlAttributes;
 
-$builder = new AttributesBuilder();
+$builder = new HtmlBuilder();
 
-$attributes = $builder->build([
+$attributes = $builder->buildAttributes(new HtmlAttributes([
     "href" => "https://becklyn.com",
     "target" => "_blank",
-]);
+]));
 
 echo "<a {$attributes}>Becklyn</a>"; 
 ```
+
 
 Special values:
 

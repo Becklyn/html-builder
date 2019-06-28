@@ -1,11 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Becklyn\HtmlBuilder;
+namespace Tests\Becklyn\HtmlBuilder\Node;
 
-use Becklyn\HtmlBuilder\AttributesValidator;
+use Becklyn\HtmlBuilder\Node\HtmlAttributes;
+use Becklyn\HtmlBuilder\Exception\InvalidAttributeNameException;
 use PHPUnit\Framework\TestCase;
 
-class AttributesValidatorTest extends TestCase
+class HtmlAttributesTest extends TestCase
 {
     /**
      * @return array
@@ -29,8 +30,8 @@ class AttributesValidatorTest extends TestCase
      */
     public function testValid (string $name) : void
     {
-        $validator = new AttributesValidator();
-        self::assertTrue($validator->validateName($name));
+        $attrs = new HtmlAttributes([$name => "ohai"]);
+        self::assertSame("ohai", $attrs->get($name));
     }
 
 
@@ -62,7 +63,7 @@ class AttributesValidatorTest extends TestCase
      */
     public function testInvalid (string $name) : void
     {
-        $validator = new AttributesValidator();
-        self::assertFalse($validator->validateName($name));
+        $this->expectException(InvalidAttributeNameException::class);
+        new HtmlAttributes([$name => "ohai"]);
     }
 }
