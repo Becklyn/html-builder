@@ -1,4 +1,10 @@
-1.1
-===
+2.0.0
+=====
+
+*   Added real value objects `HtmlElement` and `HtmlAttributes` and added building of HTMl elements.
+
+
+1.1.0
+=====
 
 *   Added validation for attributes names.
