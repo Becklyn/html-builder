@@ -14,7 +14,7 @@
         "php": "^7.2"
     },
     "require-dev": {
-        "becklyn/php-cs": "^1.1"
+        "becklyn/php-cs": "^2.0.2"
     },
     "config": {
         "sort-packages": true

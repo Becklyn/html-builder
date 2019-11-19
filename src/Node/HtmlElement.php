@@ -33,9 +33,7 @@ class HtmlElement
 
 
     /**
-     * @param string               $tagName
      * @param array|HtmlAttributes $attributes
-     * @param array                $content
      */
     public function __construct (string $tagName, $attributes = [], array $content = [])
     {
@@ -53,7 +51,6 @@ class HtmlElement
 
 
     /**
-     * @return string
      */
     public function getTagName () : string
     {
@@ -62,7 +59,6 @@ class HtmlElement
 
 
     /**
-     * @return HtmlAttributes
      */
     public function getAttributes () : HtmlAttributes
     {
@@ -71,7 +67,7 @@ class HtmlElement
 
 
     /**
-     * @return (string|HtmlElement)[]
+     * @return (string|HtmlElement|SafeMarkup)[]
      */
     public function getContent () : array
     {
@@ -80,7 +76,6 @@ class HtmlElement
 
 
     /**
-     * @return bool
      */
     public function isEmpty () : bool
     {
@@ -89,7 +84,7 @@ class HtmlElement
 
 
     /**
-     * @param string|HtmlElement|SafeMarkup $value
+     * @param string|HtmlElement|SafeMarkup|mixed $value
      */
     public function addContent ($value)
     {

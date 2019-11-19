@@ -14,7 +14,6 @@ class SafeMarkup
 
 
     /**
-     * @param string $content
      */
     public function __construct (string $content)
     {
@@ -23,7 +22,6 @@ class SafeMarkup
 
 
     /**
-     * @return string
      */
     public function getContent () : string
     {

@@ -10,10 +10,6 @@ class HtmlBuilder
 {
     /**
      * Builds an HTML element.
-     *
-     * @param HtmlElement $element
-     *
-     * @return string
      */
     public function buildElement (HtmlElement $element) : string
     {
@@ -57,10 +53,6 @@ class HtmlBuilder
 
     /**
      * Builds the attributes string.
-     *
-     * @param HtmlAttributes $attributes
-     *
-     * @return string
      */
     public function buildAttributes (HtmlAttributes $attributes) : string
     {

@@ -23,9 +23,7 @@ class ElementCollection
 
 
     /**
-     * @param string $tagName
      *
-     * @return bool
      */
     public static function isEmptyElement (string $tagName) : bool
     {
