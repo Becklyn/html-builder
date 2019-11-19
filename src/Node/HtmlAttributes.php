@@ -11,7 +11,6 @@ class HtmlAttributes implements \IteratorAggregate
 
 
     /**
-     * @param array $initial
      */
     public function __construct (array $initial = [])
     {
@@ -23,8 +22,7 @@ class HtmlAttributes implements \IteratorAggregate
 
 
     /**
-     * @param string $name
-     * @param mixed  $value
+     * @param mixed $value
      *
      * @return HtmlAttributes
      */
@@ -49,8 +47,6 @@ class HtmlAttributes implements \IteratorAggregate
 
 
     /**
-     * @param string $name
-     *
      * @return mixed|null
      */
     public function get (string $name)
@@ -70,10 +66,6 @@ class HtmlAttributes implements \IteratorAggregate
 
     /**
      * Validates that the given attribute name is valid.
-     *
-     * @param string $attributeName
-     *
-     * @return bool
      */
     private function validateName (string $attributeName) : bool
     {
