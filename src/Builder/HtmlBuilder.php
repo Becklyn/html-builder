@@ -4,6 +4,7 @@ namespace Becklyn\HtmlBuilder\Builder;
 
 use Becklyn\HtmlBuilder\Node\HtmlAttributes;
 use Becklyn\HtmlBuilder\Node\HtmlElement;
+use Becklyn\HtmlBuilder\Node\SafeMarkup;
 
 class HtmlBuilder
 {
@@ -29,9 +30,18 @@ class HtmlBuilder
 
         foreach ($element->getContent() as $entry)
         {
-            $content[] = $entry instanceof HtmlElement
-                ? $this->buildElement($entry)
-                : \htmlspecialchars($entry);
+            if ($entry instanceof HtmlElement)
+            {
+                $content[] = $this->buildElement($entry);
+            }
+            elseif ($entry instanceof SafeMarkup)
+            {
+                $content[] = $entry->getContent();
+            }
+            else
+            {
+                $content[] = \htmlspecialchars($entry);
+            }
         }
 
         $html .= \implode("", $content);

@@ -48,7 +48,6 @@ Special values:
 
 
 ```php
-
 $full = $builder->build([
     "first" => "a",
     "removed1" => false,
@@ -59,4 +58,16 @@ $full = $builder->build([
 
 
 assert($full === 'first="a" checked last="b"'); // true
+```
+
+Adding pre-compiled HTML to an element
+--------------------------------------
+
+To avoid automatic escaping of the content, you can use `SafeMarkup`:
+
+```php
+$link = new HtmlElement("div");
+$link->addContent(new SafeMarkup("This will <b>not</b> be escaped!"));
+
+assert('<div>This will <b>not</b> be escaped!</div>' === $builder->buildElement($link));
 ```
