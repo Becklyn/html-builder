@@ -96,6 +96,12 @@ class HtmlElement
             ));
         }
 
+        // ignore `null` values
+        if (null === $value)
+        {
+            return $this;
+        }
+
         if (\is_scalar($value))
         {
             $this->content[] = (string) $value;
