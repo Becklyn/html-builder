@@ -27,7 +27,7 @@ class HtmlElement
 
 
     /**
-     * @var (string|HtmlElement)[]
+     * @var (string|HtmlElement|SafeMarkup)[]
      */
     private $content = [];
 
@@ -89,7 +89,7 @@ class HtmlElement
 
 
     /**
-     * @param string|HtmlElement $value
+     * @param string|HtmlElement|SafeMarkup $value
      */
     public function addContent ($value)
     {
@@ -107,7 +107,7 @@ class HtmlElement
             return $this;
         }
 
-        if ($value instanceof self)
+        if ($value instanceof self || $value instanceof SafeMarkup)
         {
             $this->content[] = $value;
             return $this;

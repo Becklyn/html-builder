@@ -5,6 +5,7 @@ namespace Tests\Becklyn\HtmlBuilder\Builder;
 use Becklyn\HtmlBuilder\Builder\HtmlBuilder;
 use Becklyn\HtmlBuilder\Node\HtmlAttributes;
 use Becklyn\HtmlBuilder\Node\HtmlElement;
+use Becklyn\HtmlBuilder\Node\SafeMarkup;
 use PHPUnit\Framework\TestCase;
 
 class HtmlBuilderTest extends TestCase
@@ -47,6 +48,10 @@ class HtmlBuilderTest extends TestCase
             [
                 new HtmlElement("p", [], ["Test <b>not bold</b>"]),
                 '<p>Test &lt;b&gt;not bold&lt;/b&gt;</p>',
+            ],
+            [
+                new HtmlElement("p", [], ["a ", new SafeMarkup("This is <b>bold</b>!"), " c"]),
+                '<p>a This is <b>bold</b>! c</p>',
             ],
         ];
     }
