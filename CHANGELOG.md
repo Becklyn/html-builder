@@ -1,7 +1,7 @@
 2.1.1
 =====
 
-*   `null` content is now ignored.
+*   `null` content in `HTMLElement`s is now ignored.
 
 
 2.1.0
