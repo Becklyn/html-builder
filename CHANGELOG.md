@@ -1,3 +1,8 @@
+2.1.2
+=====
+
+*   single and double quotes can won't be encoded anymore in content meaning content can now be a json string in `HTMLElement`s.
+
 2.1.1
 =====
 
