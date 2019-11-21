@@ -36,7 +36,7 @@ class HtmlBuilder
             }
             else
             {
-                $content[] = \htmlspecialchars($entry);
+                $content[] = \htmlspecialchars($entry, \ENT_NOQUOTES);
             }
         }
 
