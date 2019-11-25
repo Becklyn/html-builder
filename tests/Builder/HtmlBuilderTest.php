@@ -53,6 +53,10 @@ class HtmlBuilderTest extends TestCase
                 new HtmlElement("p", [], ["a ", new SafeMarkup("This is <b>bold</b>!"), " c"]),
                 '<p>a This is <b>bold</b>! c</p>',
             ],
+            [
+                new HtmlElement("script", ["type" =>"application/json"], ['{"foo": "bar"}']),
+                '<script type="application/json">{"foo": "bar"}</script>',
+            ],
         ];
     }
 
