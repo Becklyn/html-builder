@@ -1,23 +1,20 @@
 {
     "name": "becklyn/html-builder",
-    "type": "library",
     "description": "Simple helpers for building HTML",
-    "homepage": "https://github.com/Becklyn/",
     "license": "BSD-3-Clause",
+    "type": "library",
     "authors": [
         {
             "name": "Becklyn Studios",
             "homepage": "http://becklyn.com/"
         }
     ],
+    "homepage": "https://github.com/Becklyn/",
     "require": {
         "php": ">=7.4"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^5.4.3"
-    },
-    "config": {
-        "sort-packages": true
     },
     "autoload": {
         "psr-4": {
@@ -28,5 +25,8 @@
         "psr-4": {
             "Tests\\Becklyn\\HtmlBuilder\\": "tests/"
         }
+    },
+    "config": {
+        "sort-packages": true
     }
 }
