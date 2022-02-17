@@ -7,11 +7,9 @@ use Becklyn\HtmlBuilder\Exception\InvalidAttributeValueException;
 
 class HtmlAttributes implements \IteratorAggregate
 {
-    private $attributes = [];
+    private array $attributes = [];
 
 
-    /**
-     */
     public function __construct (array $initial = [])
     {
         foreach ($initial as $name => $value)

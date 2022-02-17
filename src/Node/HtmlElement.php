@@ -8,28 +8,11 @@ use Becklyn\HtmlBuilder\Exception\NoContentAllowedException;
 
 class HtmlElement
 {
-    /**
-     * @var string
-     */
-    private $tagName;
-
-
-    /**
-     * @var bool
-     */
-    private $empty;
-
-
-    /**
-     * @var HtmlAttributes
-     */
-    private $attributes;
-
-
-    /**
-     * @var (string|HtmlElement|SafeMarkup)[]
-     */
-    private $content = [];
+    private string $tagName;
+    private bool $empty;
+    private HtmlAttributes $attributes;
+    /** @var (string|HtmlElement|SafeMarkup)[] */
+    private array $content = [];
 
 
     /**
@@ -50,16 +33,12 @@ class HtmlElement
     }
 
 
-    /**
-     */
     public function getTagName () : string
     {
         return $this->tagName;
     }
 
 
-    /**
-     */
     public function getAttributes () : HtmlAttributes
     {
         return $this->attributes;
@@ -75,8 +54,6 @@ class HtmlElement
     }
 
 
-    /**
-     */
     public function isEmpty () : bool
     {
         return $this->empty;
@@ -86,7 +63,7 @@ class HtmlElement
     /**
      * @param string|HtmlElement|SafeMarkup|mixed $value
      */
-    public function addContent ($value)
+    public function addContent ($value) : self
     {
         if ($this->empty)
         {

@@ -1,3 +1,11 @@
+2.2.0
+=====
+
+*   (feature) Add support for PHP 8.
+*   (internal) Replace TravisCI with GitHub Actions.
+*   (improvement) Add missing property types and return types.
+
+
 2.1.2
 =====
 

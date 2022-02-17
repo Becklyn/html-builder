@@ -11,11 +11,10 @@
         }
     ],
     "require": {
-        "php": "^7.2"
+        "php": ">=7.4"
     },
     "require-dev": {
-        "becklyn/php-cs": "^2.0.2",
-        "symfony/phpunit-bridge": "^4.3.8"
+        "symfony/phpunit-bridge": "^5.4.3"
     },
     "config": {
         "sort-packages": true

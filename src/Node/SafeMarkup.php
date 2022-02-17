@@ -7,22 +7,15 @@ namespace Becklyn\HtmlBuilder\Node;
  */
 class SafeMarkup
 {
-    /**
-     * @var string
-     */
-    private $content;
+    private string $content;
 
 
-    /**
-     */
     public function __construct (string $content)
     {
         $this->content = $content;
     }
 
 
-    /**
-     */
     public function getContent () : string
     {
         return $this->content;

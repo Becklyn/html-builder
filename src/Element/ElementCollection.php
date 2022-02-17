@@ -22,9 +22,6 @@ class ElementCollection
     ];
 
 
-    /**
-     *
-     */
     public static function isEmptyElement (string $tagName) : bool
     {
         return isset(self::EMPTY_ELEMENTS[$tagName]);
